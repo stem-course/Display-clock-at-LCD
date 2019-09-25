@@ -1,5 +1,5 @@
 /*
-Code by: www.munphurid.com
+Code by: 
 Syed Rafay Hashmi and Wardah Arshad
 
 This is a code for Clock displayed on LCD
@@ -8,34 +8,43 @@ Hardware:
 Is bought from www.munphurid.com
 -Arduino UNO
 -16 male to female wires
--Lcd
+-LCD
 
 Connections:
 
-Connect VSS of Lcdpin to GND of Arduino
-Connect VDD of Lcdpin to 5V of Arduino
-Connect Vo/ VEE(potentiometer) of Lcdpin to GND of Arduino
-Connect RS of Lcdpin to pin12 of Arduino
-Connect RW of Lcdpin to GND of Arduino
-Connect E of Lcdpin to pin11 of Arduino
-D0 TO D3 NOT USED
-Connect D4 of Lcdpin to PIN5 of Arduino
-Connect D5 of Lcdpin to PIN4 of Arduino
-Connect D6 of Lcdpin to PIN3 of Arduino
-Connect D7 of Lcdpin to PIN2 of Arduino
-Connect LED+/A of Lcdpin to 5V of Arduino
-Connect LED-/K of Lcdpin to GND of Arduino
+LCD and Arduino
+•	Connect pin 1 of LCD to GND of Arduino.
+•	Connect pin 2 of LCD to 5V of Arduino.
+•	Connect pin 3 of LCD to centre leg of pot. Connect one of the remaining legs of pot (potentiometer) to GND of Arduino 
+and the third leg of pot to 5V of Arduino.
+•	Connect pin 4 (RS) of LCD to pin 12 of Arduino.
+•	Connect pin 5 (RW) of LCD to GND of Arduino.
+•	Connect pin 6 (E) of LCD to pin 11 of Arduino.
+•	Connect pin 11 (D4) of LCD to pin 5 of Arduino.
+•	Connect pin 12 (D5) of LCD to pin 4 of Arduino.
+•	Connect pin 13 (D6) of LCD to pin 3 of Arduino.
+•	Connect pin 14 (D7) of LCD to pin 2 of Arduino.
+•	Connect pin 15 of LCD to pin 5V of Arduino.
+•	Connect pin 16 of LCD to pin GND of Arduino.
+
 */
 
-
 #include <LiquidCrystal.h>                    //Including library for controling LCD
-LiquidCrystal lcd(12, 11, 5, 4, 3, 2);       // Creates an LCD object. Parameters: (rs, enable, d4, d5, d6, d7)
+int RS = 12;     //connect RS of LCD to this pin
+int E = 11;      //connect E of LCD to this pin
+int D4 = 5;      //connect D4 of LCD to this pin
+int D5 = 4;      //connect D5 of LCD to this pin
+int D6 = 3;      //connect D6 of LCD to this pin
+int D7 = 2;      //connect D7 of LCD to this pin
+ 
+LiquidCrystal lcd(RS,E,D4,D5,D6,D7);
+
 int sec = 0;                  // initial value of second is 0
 int minu = 0;                 // initial value of minute is 0
 int hrs = 0;                  //initial value of hour is 0
 
 void setup() {
-  lcd.begin(16,2);            // Initialize lcd parametes for 16 by 2(16x2) LCD
+  lcd.begin(16,2);            // Type of LCD
   }
 
 void loop() {
